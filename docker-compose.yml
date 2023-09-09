@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  devenv:
+    image: devenv
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+
+
+
+#docker run -it -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix ubuntu-desktop
+#eval $(ssh-agent -s) && ssh-add && set "DOCKER_BUILDKIT=1" && docker build -t 'ubuntu-desktop' --ssh default .
