@@ -6,8 +6,12 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
+      args:  # Pass build-time variables
+        DOCKER_BUILDKIT: 1
+      ssh:
+        - default
+    environment:  # Runtime environment variables
+      DISPLAY: :0
 
-
-
-#docker run -it -e DISPLAY=:0 -v /tmp/.X11-unix:/tmp/.X11-unix ubuntu-desktop
-#eval $(ssh-agent -s) && ssh-add && set "DOCKER_BUILDKIT=1" && docker build -t 'ubuntu-desktop' --ssh default .
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix  # Mount X11 socket

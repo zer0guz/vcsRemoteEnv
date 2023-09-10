@@ -1,1 +1,1 @@
-# vcsRemoteEnv
+Remote docker VSCode environment for CTFs
