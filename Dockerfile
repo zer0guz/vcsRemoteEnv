@@ -47,6 +47,7 @@ RUN --mount=type=ssh ssh-keyscan github.com > /etc/ssh/ssh_known_hosts && \
 
 
 COPY tmux.conf /root/.tmux.conf
+COPY pwninit-template.py /root/.config/pwninit-template.py
 
 
 # Run zsh when the container launches
